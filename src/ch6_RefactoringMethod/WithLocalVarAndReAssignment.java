@@ -15,16 +15,18 @@ public class WithLocalVarAndReAssignment {
     private ArrayList<Integer> _amounts = new ArrayList<>();
 
     void printOwing() {
-        double outstanding = 0.0;
-
         printBanner();
+        double outstanding = getOutstanding();
+        printDetails(outstanding);
 
+    }
+
+    private double getOutstanding() {
+        double outstanding = 0.0;
         for(Integer amount : _amounts) {
             outstanding += amount;
         }
-
-        printDetails(outstanding);
-
+        return outstanding;
     }
 
     private void printBanner() {
