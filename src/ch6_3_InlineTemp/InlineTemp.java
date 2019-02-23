@@ -5,8 +5,9 @@ public class InlineTemp {
 
     private boolean notCheap() {
         // 你有一个临时变量，只被一个简单表达式赋值一次。但它妨碍了其他重构手法，所以需要对其进行inline temp
-        double basePrice = _order.basePrice();
-        return basePrice > 1000;
+        return _order.basePrice() > 1000;
+        //double basePrice = _order.basePrice();
+        //return basePrice > 1000;
     }
 }
 
