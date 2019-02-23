@@ -26,11 +26,7 @@ public class Customer {
         String result = "Rental Record for " + getName() + "\n";
         while (rentalEnumeration.hasMoreElements()) {
             Rental each = rentalEnumeration.nextElement();
-            frequentRenterPoints ++;
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                    each.getDaysRented() > 1) {
-                frequentRenterPoints ++;
-            }
+            frequentRenterPoints += each.getFrequentRenterPoints();
             result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
             totalAmount += each.getCharge();
         }
@@ -38,4 +34,5 @@ public class Customer {
         result += "You earned " + frequentRenterPoints + " frequent renter points";
         return result;
     }
+
 }
