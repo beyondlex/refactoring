@@ -16,10 +16,12 @@ public class ReplaceTempWithQuery {
         // 如果把临时变量替换为一个查询 ，那么同一个类中的所有函数 都可以获得这份信息。
         // Temp变量往往使Extract Method难以进行， 所以你应该尽可能把它们替换为Query
 
+        double discountFactor;
         if (basePrice() > 1000)
-            return basePrice() * 0.95;
+            discountFactor = 0.95;
         else
-            return basePrice() * 0.98;
+            discountFactor = 0.98;
+        return basePrice() * discountFactor;
 
         // 将这个表达式提炼到独立函数中。
         // 将这个临时变量的所有引用点，替换为对新函数的调用。
