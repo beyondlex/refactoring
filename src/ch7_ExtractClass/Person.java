@@ -4,13 +4,14 @@ public class Person {
     private String name;
     private String officeAreaCode;
     private String officeNumber;
+    private TelephoneNumber telephoneNumber;
 
     public String getName() {
         return name;
     }
 
     public String getTelephoneNumber() {
-        return "(" + officeAreaCode + ")" + officeNumber;
+        return "(" + getOfficeAreaCode() + ")" + officeNumber;
     }
 
     public String getOfficeNumber() {
@@ -22,10 +23,19 @@ public class Person {
     }
 
     public String getOfficeAreaCode() {
-        return officeAreaCode;
+        return telephoneNumber.getAreaCode();
     }
 
     public void setOfficeAreaCode(String officeAreaCode) {
-        this.officeAreaCode = officeAreaCode;
+        telephoneNumber.setAreaCode(officeAreaCode);
+    }
+}
+class TelephoneNumber {
+    private String areaCode;
+    String getAreaCode() {
+        return areaCode;
+    }
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
     }
 }
