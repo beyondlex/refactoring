@@ -21,8 +21,9 @@ class Main {
     public static void main(String[] args) {
         Person jim = new Person();
         // Who is jim's manager?
-        //Person manager = jim.department.getManager();
+        // Person manager = jim.department.getManager();
         Person manager = jim.getManager();
+        // 减少了耦合
     }
 }
 
