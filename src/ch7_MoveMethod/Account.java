@@ -5,19 +5,20 @@ public class Account {
     private AccountType _type;
     private int _daysOverdrawn;
 
-    private double overdraftCharge() {
-        return _type.overdraftCharge(_daysOverdrawn);
-    }
-
     double bankCharge() {
         double result = 4.5;
-        if (_daysOverdrawn > 0) result += overdraftCharge();
+        if (_daysOverdrawn > 0) result += _type.overdraftCharge(_daysOverdrawn);
         return result;
     }
 }
 
 class AccountType {
 
+    /**
+     * 透支金额计费
+     * @param daysOverdrawn
+     * @return
+     */
     public double overdraftCharge(int daysOverdrawn) {
         if (isPremium()) {
             double result = 10;
