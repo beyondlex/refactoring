@@ -2,8 +2,6 @@ package ch7_ExtractClass;
 
 public class Person {
     private String name;
-    private String officeAreaCode;
-    private String officeNumber;
     private TelephoneNumber telephoneNumber;
 
     public String getName() {
@@ -11,27 +9,16 @@ public class Person {
     }
 
     public String getTelephoneNumber() {
-        return "(" + getOfficeAreaCode() + ")" + officeNumber;
-    }
-
-    public String getOfficeNumber() {
-        return officeNumber;
-    }
-
-    public void setOfficeNumber(String officeNumber) {
-        this.officeNumber = officeNumber;
-    }
-
-    public String getOfficeAreaCode() {
-        return telephoneNumber.getAreaCode();
-    }
-
-    public void setOfficeAreaCode(String officeAreaCode) {
-        telephoneNumber.setAreaCode(officeAreaCode);
+        return telephoneNumber.getTelephoneNumber();
     }
 }
 class TelephoneNumber {
     private String areaCode;
+    private String number;
+
+    public String getTelephoneNumber() {
+        return "(" + areaCode + ")" + number;
+    }
     String getAreaCode() {
         return areaCode;
     }
