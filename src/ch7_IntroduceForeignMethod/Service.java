@@ -21,9 +21,17 @@ class Client {
     private Service service;
 
     void doSth() {
+        dailyAction(service);
+        // service.dailyAction()的替代版
+    }
+
+    /**
+     * 在Client中建立一个函数，传入服务类实例，假装在Service创建了一个dailyAction函数
+     * @param service
+     */
+    void dailyAction(Service service) {
         String dailyAction = service.walk()
                 + " " + service.talk()
                 + " " + service.sleep();
-
     }
 }
